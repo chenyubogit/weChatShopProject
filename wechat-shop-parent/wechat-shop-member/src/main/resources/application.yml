@@ -10,3 +10,11 @@ eureka:
 spring:
   application:
     name: member
+  redis:
+    host: 192.168.73.128
+    port: 6379
+    pool:
+      max-idle: 100
+      min-idle: 1
+      max-active: 1000
+      max-wait: -1

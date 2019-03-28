@@ -12,6 +12,7 @@
         <module>wechat-shop-eurekaserver</module>
         <module>wechat-shop-api</module>
         <module>wechat-shop-member</module>
+        <module>wechat-shop-common</module>
     </modules>
 
     <parent>

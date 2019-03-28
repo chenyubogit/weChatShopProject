@@ -21,4 +21,13 @@ public interface DemoApiService {
      */
     @GetMapping("/demo")
     public Map<String, Object> demo();
+
+    @GetMapping("/setKey")
+    public Map<String, Object> setKey(String key, String value);
+
+    @GetMapping("/getKey")
+    public Map<String, Object> getKey(String key);
+
+    @GetMapping("/delKey")
+    public Map<String, Object> delKey(String key);
 }
