@@ -13,6 +13,7 @@
         <module>wechat-shop-api</module>
         <module>wechat-shop-member</module>
         <module>wechat-shop-common</module>
+        <module>wechat-shop-message</module>
     </modules>
 
     <parent>

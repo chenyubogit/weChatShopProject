@@ -1,0 +1,18 @@
+server:
+  port: 8763
+  context-path: /nessage
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    healthcheck:
+      enabled: true
+spring:
+  application:
+    name: member
+  activemq:
+    broker-url: tcp://192.168.73.128:61617
+    in-memory: true
+    pool:
+      enabled: false
+

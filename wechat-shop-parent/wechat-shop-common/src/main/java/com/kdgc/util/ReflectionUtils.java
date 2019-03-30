@@ -3,10 +3,6 @@ package com.kdgc.util;
 import java.lang.reflect.Field;
 import java.sql.Timestamp;
 
-import org.apache.ibatis.jdbc.SQL;
-
-import com.kdgc.common.entity.UserEntity;
-
 /**
  * @author Mr.Chen
  * @Classname ReflectionUtils
@@ -117,25 +113,5 @@ public class ReflectionUtils {
             }
         }
         return sf.toString();
-    }
-
-    public static void main(String[] args) {
-        UserEntity userEntity = new UserEntity();
-        userEntity.setUsername("张三");
-        userEntity.setPhone("18538165238");
-        userEntity.setEmail("326184115@qq.com");
-        userEntity.setPassword("123456");
-        userEntity.setCreated(DateUtils.getTimestamp());
-        userEntity.setUpdated(DateUtils.getTimestamp());
-        final String filed = fatherAndSonField(userEntity);
-        final String value = fatherAndSonFieldValue(userEntity);
-        SQL sql = new SQL() {
-
-            {
-                INSERT_INTO("mb_user");
-                VALUES(filed, value);
-            }
-        };
-        System.out.println(sql);
     }
 }

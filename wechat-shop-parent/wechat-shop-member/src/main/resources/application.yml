@@ -18,3 +18,33 @@ spring:
       min-idle: 1
       max-active: 1000
       max-wait: -1
+  datasource:
+    name: test
+    url: jdbc:mysql://192.168.73.128/wechat-shop-member
+    username: root
+    password: 123456
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+    ##activemq连接信息
+  activemq:
+    broker-url: tcp://192.168.73.128:61617
+    in-memory: true
+    pool:
+      enabled: false
+    ##队列
+messages:
+  queue: mail_queue

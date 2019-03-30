@@ -1,4 +1,6 @@
-package com.kdgc.common.entity;
+package com.kdgc.entity;
+
+import com.kdgc.common.entity.BaseEntity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +15,7 @@ import lombok.Setter;
 @Setter
 public class UserEntity extends BaseEntity {
 
-    private String username;
+    private String userName;
 
     private String password;
 

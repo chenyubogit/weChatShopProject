@@ -24,6 +24,16 @@ public class BaseApiService {
     }
 
     /**
+     * 参数错误需要回传信息
+     *
+     * @param msg
+     * @return
+     */
+    public Map<String, Object> setParamsError(String msg) {
+        return setResult(BaseApiConstants.HTTP_400_CODE, msg, null);
+    }
+
+    /**
      * 成功、无参
      * 
      * @return
