@@ -1,10 +1,9 @@
 package com.kdgc.common.entity;
 
-import org.apache.commons.net.ntp.TimeStamp;
+import java.sql.Timestamp;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author Mr.Chen
@@ -14,7 +13,6 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Getter
 @Setter
-@Slf4j
 public class BaseEntity {
 
     /**
@@ -25,10 +23,10 @@ public class BaseEntity {
     /**
      * 创建时间
      */
-    private TimeStamp created;
+    private Timestamp created;
 
     /**
      * 修改时间
      */
-    private TimeStamp updated;
+    private Timestamp updated;
 }
