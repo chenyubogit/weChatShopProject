@@ -15,4 +15,18 @@ spring:
     in-memory: true
     pool:
       enabled: false
-
+  mail:
+    host: smtp.qq.com
+    username: 1775731880@qq.com
+    password: gwovxjrsnfracdac
+    enable:  true
+    smtp:
+      auth: true
+    starttls:
+      enable: true
+      required: true
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
