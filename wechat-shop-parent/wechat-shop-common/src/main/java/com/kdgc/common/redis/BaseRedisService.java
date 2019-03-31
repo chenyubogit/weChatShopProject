@@ -20,7 +20,7 @@ public class BaseRedisService {
 
     /**
      * 添加redis信息
-     * 
+     *
      * @param key
      * @param value
      * @param timeout
@@ -39,6 +39,10 @@ public class BaseRedisService {
                 String strValue = (String) value;
                 stringRedisTemplate.opsForValue().set(key, strValue);
             }
+            if (value instanceof Long) {
+                String longValue = String.valueOf(value);
+                stringRedisTemplate.opsForValue().set(key, longValue);
+            }
             // 设置有效期
             if (timeout != null) {
                 stringRedisTemplate.expire(key, timeout, TimeUnit.SECONDS);
@@ -48,7 +52,7 @@ public class BaseRedisService {
 
     /**
      * 使用key查找redis信息
-     * 
+     *
      * @param key
      * @return
      */
@@ -58,7 +62,7 @@ public class BaseRedisService {
 
     /**
      * 使用key删除redis信息
-     * 
+     *
      * @param key
      */
     public void del(String key) {

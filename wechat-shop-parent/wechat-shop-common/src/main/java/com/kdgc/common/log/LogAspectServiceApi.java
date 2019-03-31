@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.JSON;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -27,8 +27,6 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 @Slf4j
 public class LogAspectServiceApi {
-
-    private JSONObject jsonObject = new JSONObject();
 
     /**
      * 申明一个切点 里面是 execution表达式
@@ -65,7 +63,7 @@ public class LogAspectServiceApi {
     public void methodAfterReturing(Object o) {
         log.info("--------------返回内容----------------");
         try {
-            log.info("Response内容:" + jsonObject.toJSONString(o));
+            log.info("Response内容:" + JSON.toJSONString(o));
         } catch (Exception e) {
             log.error("###LogAspectServiceApi.class methodAfterReturing() ### ERROR:", e);
         }
