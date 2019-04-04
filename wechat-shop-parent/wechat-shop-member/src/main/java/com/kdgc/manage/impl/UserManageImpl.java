@@ -93,10 +93,8 @@ public class UserManageImpl extends BaseApiService implements UserManage {
             return setResultError("账号或密码错误");
         }
         // 2、生成自定义的token、
-        String token = tokenUtils.getToken();
         Long id = userPhoneAndPwd.getId();
-        // 将token作为key将用户的userId作为value存放在redis中
-        baseRedisService.set(token, id, Constants.USER_TOKEN_TERMVALIDITY);
+        String token = serUserToken(id);
         // 返回token
         return setResultSuccData(token);
     }
@@ -113,5 +111,30 @@ public class UserManageImpl extends BaseApiService implements UserManage {
         // 无需把密码传到前台
         userEntity.setPassword(null);
         return setResultSuccData(userEntity);
+    }
+
+    @Override
+    public Map<String, Object> userLoginByOpenId(String openId) {
+        UserEntity userEntity = userDao.findUserOpenId(openId);
+        if (userEntity == null) {
+            return setResultError("没有关联用户");
+        }
+        Long id = userEntity.getId();
+        String token = serUserToken(id);
+        // 能查到自动登陆
+        return setResultSuccData(token);
+    }
+
+    /**
+     * 重构生成token的方法
+     * 
+     * @param id
+     * @return
+     */
+    private String serUserToken(Long id) {
+        String token = tokenUtils.getToken();
+        // 将token作为key将用户的userId作为value存放在redis中
+        baseRedisService.set(token, id, Constants.USER_TOKEN_TERMVALIDITY);
+        return token;
     }
 }

@@ -32,4 +32,13 @@ public interface UserDao extends BaseDao {
      */
     @Select("select * from mb_user where id = #{userId}")
     UserEntity getUserInfoById(@Param("userId") long userId);
+
+    /**
+     * 根据openId查找用户
+     * 
+     * @param openId
+     * @return
+     */
+    @Select("select * from mb_user where openId = #{openId}")
+    UserEntity findUserOpenId(@Param("openId") String openId);
 }

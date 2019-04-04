@@ -42,4 +42,12 @@ public interface UserManage {
      * @return
      */
     Map<String, Object> getUser(String token);
+
+    /**
+     * 通过openId查找用户
+     * 
+     * @param openId
+     * @return
+     */
+    Map<String, Object> userLoginByOpenId(String openId);
 }
