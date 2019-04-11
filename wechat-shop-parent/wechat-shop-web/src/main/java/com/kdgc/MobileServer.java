@@ -8,7 +8,7 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
 /**
  * @author Mr.Chen
  * @Classname MobileServer
- * @Description TODO
+ * @Description web服务启动类
  * @Date 2019/3/31 18:45
  */
 @SpringBootApplication

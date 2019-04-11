@@ -3,6 +3,7 @@ package com.kdgc.dao;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.kdgc.common.mybatis.BaseDao;
 import com.kdgc.entity.UserEntity;
@@ -41,4 +42,14 @@ public interface UserDao extends BaseDao {
      */
     @Select("select * from mb_user where openId = #{openId}")
     UserEntity findUserOpenId(@Param("openId") String openId);
+
+    /**
+     * 更新QQ关联的的用户
+     *
+     * @param openId
+     * @param id
+     * @return
+     */
+    @Update("update mmb_user set openid = #{openId},update = now() where id = #{id}")
+    void updateUserOpenId(@Param("openId") String openId, @Param("id") Long id);
 }

@@ -43,12 +43,18 @@ public class LoginController extends BaseController {
     private UserFeign userFeign;
 
     @RequestMapping("/localLogin")
-    public String localLogin() {
+    public String localLogin(String source, HttpServletRequest request) {
+        request.setAttribute("source", source);
         return LOGIN;
     }
 
     @RequestMapping("/login")
-    public String login(UserEntity userEntity, HttpServletRequest request, HttpServletResponse response) {
+    public String login(UserEntity userEntity, HttpServletRequest request, HttpServletResponse response, String source,
+            HttpSession session) {
+        if (StringUtils.isNotEmpty(source) && source.equals(Constants.USER_SOURCE_QQ)) {
+            String openId = (String) session.getAttribute(Constants.USER_SESSION_OPINID);
+            userEntity.setOpenId(openId);
+        }
         Map<String, Object> login = userFeign.login(userEntity);
         Integer code = (Integer) login.get(BaseApiConstants.HTTP_CODE_NAME);
         if (!code.equals(BaseApiConstants.HTTP_200_CODE)) {

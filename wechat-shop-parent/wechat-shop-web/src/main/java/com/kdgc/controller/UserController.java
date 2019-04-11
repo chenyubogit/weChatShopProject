@@ -22,8 +22,8 @@ public class UserController extends BaseController {
     public static final String INDEX = "index";
 
     @RequestMapping("/index")
-    public String index(HttpServletRequest request, String token) {
-        log.info("我的web项目搭建成功了,userName{}:" + getUserEntity(token).getUserName());
+    public String index(HttpServletRequest request) {
+        log.info("我的web项目搭建成功了,userName{}:");
         request.setAttribute("userName", "");
         return INDEX;
     }

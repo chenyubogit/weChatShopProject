@@ -47,7 +47,7 @@
             <div class="ng-form-area show-place" id="form-area">
                 <form method="post" action="login" id="miniLogin"
                       onsubmit="return MiniLogin.validateForm();">
-
+                    <input type="hidden" name="source" <#if source??>value="${source}"</#if>>/>
                     <div class="shake-area" id="shake_area" style="z-index:30;">
                         <div class="enter-area display-custom-hide" id="revalidate_user"><p class="revalidate-user-name"
                                                                                             id="revalidate_user_name"></p>

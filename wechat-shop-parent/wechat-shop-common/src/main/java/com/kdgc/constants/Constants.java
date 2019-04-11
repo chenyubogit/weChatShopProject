@@ -18,4 +18,6 @@ public interface Constants {
     String USER_TOKEN = "token";
 
     String USER_SESSION_OPINID = "opinId";
+
+    String USER_SOURCE_QQ = "qq";
 }

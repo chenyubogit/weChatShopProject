@@ -22,4 +22,6 @@ public class UserEntity extends BaseEntity {
     private String phone;
 
     private String email;
+
+    private String openId;
 }

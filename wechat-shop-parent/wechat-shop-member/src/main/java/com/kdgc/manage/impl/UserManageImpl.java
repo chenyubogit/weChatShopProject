@@ -92,8 +92,13 @@ public class UserManageImpl extends BaseApiService implements UserManage {
         if (userPhoneAndPwd == null) {
             return setResultError("账号或密码错误");
         }
-        // 2、生成自定义的token、
         Long id = userPhoneAndPwd.getId();
+        String openId = userEntity.getOpenId();
+        if (!StringUtils.isEmpty(openId)) {
+            // 修改到数据库中
+            userDao.updateUserOpenId(openId, id);
+        }
+        // 2、生成自定义的token、
         String token = serUserToken(id);
         // 返回token
         return setResultSuccData(token);
